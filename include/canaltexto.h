@@ -1,12 +1,13 @@
 #ifndef CANALTEXTO_H
 #define CANALTEXTO_H
+#include <string>
+#include <vector>
+#include "mensagem.h"
+using namespace std;
 
 class CanalTexto{
-	//nome / string
-	//mensagens / vector<Mensagem
-	/*
-		TODO implementação dos atributos e métodos
-	*/
+	string nome;
+	vector <mensagem> mensagens;
 };
 
 #endif

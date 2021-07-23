@@ -16,7 +16,6 @@ class Sistema {
 		std::vector<Servidor> servidores; //<! um vetor com todos os servidores
 		std::vector<Usuario> usuarios; //<! um vetor com todos os usuários cadastrados
 		std::map< int, std::pair<std::string, std::string> > usuariosLogados; //<! um vetor contendo os usuários que logaram no sistema
-		
 
   public:
 
@@ -24,6 +23,8 @@ class Sistema {
 				@return uma string com a mensagem "Saindo.."
 		*/
 		std::string quit();
+
+		void adduser(Usuario a);
 
 		/*! Cria um usuário e retorna uma string de erro/sucesso 
 				@param email o email do usuário informado no comando create-user
@@ -33,6 +34,7 @@ class Sistema {
 		*/
 		std::string create_user (const std::string email, const std::string senha, const std::string nome);
 
+
 		/*! Realiza o login do usuário com email e senha, retorna uma string de erro ou uma mensagem 
 				login bem sucedido. Quando um usuário loga o sistema deve adicionar o usuário na tabela 
 				Sistema::usuariosLogados.
@@ -41,6 +43,8 @@ class Sistema {
 				@return uma string contendo uma mensagem de erro ou "Logado como <email>!"
 		*/
 		std::string login(const std::string email, const std::string senha);
+
+		void userlogados();
 
 		/*! Desconecta um usuário específico do sistema, removendo a informação daquele usuário da 
 				tabela Sistema::usuariosLogados. A função retorna uma mensagem de sucesso ou de erro 

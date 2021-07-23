@@ -1,0 +1,3 @@
+/home/runner/Projeto2/trabalho-2-GabrielGRCosta/build/CMakeFiles/rebuild_cache.dir
+/home/runner/Projeto2/trabalho-2-GabrielGRCosta/build/CMakeFiles/concordo.dir
+/home/runner/Projeto2/trabalho-2-GabrielGRCosta/build/CMakeFiles/edit_cache.dir
