@@ -1,0 +1,18 @@
+create-user julio.melo@imd.ufrn.br 12ab34cd Julio Melo
+login julio.melo@imd.ufrn.br 12ab34cd
+create-server 0 minha-casa
+create-server 0 myhouse
+create-server 0 opa
+create-server 0 dale
+set-server-desc 0 minha-casa “Este servidor serve como minha casa, sempre estarei nele”
+set-server-desc 0 myhouse “vamos falar de muita groselha”
+set-server-desc 0 opa “lalalal”
+set-server-desc 1 minha-casa “lelelel”
+set-server-desc 1 opa “lililil”
+set-server-desc 1 dale “lololol”
+list-servers 0
+remove-server 0 minha-casa
+remove-server 0 opa
+remove-server 1 minha-casa
+remove-server 0 minha-casa3
+quit
