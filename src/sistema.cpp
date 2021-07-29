@@ -52,7 +52,7 @@ string Sistema::login(const string email, const string senha) {
 		for(auto &h : usuarios){
 			if(usuariosLogados.count(h.get_id())==1){
 				return "Usuário já está logado";
-			}	
+			}
 		}	
   return "Senha ou usuário inválidos!";
 }
@@ -73,7 +73,8 @@ string Sistema::disconnect(int id) {
 }
 
 /*
-A2.2 ok
+A2.2 70%
+preicsava testar se o usuário estava logado
 */
 string Sistema::create_server(int id, const string nome) {
 	Servidor server;
@@ -89,7 +90,8 @@ string Sistema::create_server(int id, const string nome) {
 }
 
 /*
-A2.3 ok
+A2.3 70%
+preicsava testar se o usuário estava logado
 */
 string Sistema::set_server_desc(int id, const string nome, const string descricao) {
 	for(auto &l : servidores){
@@ -106,7 +108,8 @@ string Sistema::set_server_desc(int id, const string nome, const string descrica
 }
 
 /*
-A2.4 ok
+A2.4 70%
+preicsava testar se o usuário estava logado
 */
 string Sistema::set_server_invite_code(int id, const string nome, const string codigo) {
 	for(auto &t : servidores){
@@ -148,7 +151,8 @@ string Sistema::list_servers(int id) {
 }
 
 /*
-A2.6 ok
+A2.6 70%
+preicsava testar se o usuário estava logado
 Faltou atualizar as informações relativas aos usuários da tabela usuarios logados
 */
 string Sistema::remove_server(int id, const string nome) {
