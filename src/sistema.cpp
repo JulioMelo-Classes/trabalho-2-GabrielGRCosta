@@ -11,12 +11,16 @@ using namespace std;
 string Sistema::quit() {
   return "Saindo...";
 }
-
+/*
+como o unico lugar onde vc vai precisar adicionar usuarios é em create_user, esse método é desnecessário*/
 void Sistema::adduser(Usuario a){
 	usuarios.push_back(a);
 	a.set_id(usuarios.size());
 }
 
+/*
+A1.2 ok
+*/
 string Sistema::create_user (const string email, const string senha, const string nome) {
 	Usuario user;
 	user.set_name(nome);
@@ -32,6 +36,9 @@ string Sistema::create_user (const string email, const string senha, const strin
 }
 
 
+/*
+A1.3 ok
+*/
 string Sistema::login(const string email, const string senha) {
 	string x;
 	//for(int i=0; i<usuarios.size() ; i++){
@@ -50,6 +57,9 @@ string Sistema::login(const string email, const string senha) {
   return "Senha ou usuário inválidos!";
 }
 
+/*
+A2.1 ok
+*/
 string Sistema::disconnect(int id) {
 	string m;
 	for(auto &y : usuarios){
@@ -62,6 +72,9 @@ string Sistema::disconnect(int id) {
   return "O usuário não está conectado";  
 }
 
+/*
+A2.2 ok
+*/
 string Sistema::create_server(int id, const string nome) {
 	Servidor server;
 	server.set_nameserver(nome);
@@ -75,6 +88,9 @@ string Sistema::create_server(int id, const string nome) {
   return "Servidor criado";
 }
 
+/*
+A2.3 ok
+*/
 string Sistema::set_server_desc(int id, const string nome, const string descricao) {
 	for(auto &l : servidores){
 		if(l.get_nameserver() == nome && l.get_donoid() == id){
@@ -89,6 +105,9 @@ string Sistema::set_server_desc(int id, const string nome, const string descrica
 	return "Não existe o servidor " + nome;
 }
 
+/*
+A2.4 ok
+*/
 string Sistema::set_server_invite_code(int id, const string nome, const string codigo) {
 	for(auto &t : servidores){
 		if(t.get_donoid() == id && t.get_nameserver() == nome){
@@ -104,6 +123,9 @@ string Sistema::set_server_invite_code(int id, const string nome, const string c
 	return "O usuário não é dono do servidor ou o servidor não existe";
 }
 
+/*
+A2.5 ok
+*/
 string Sistema::list_servers(int id) {
 	stringstream stream;
 	for(auto &i : usuarios){
@@ -125,6 +147,10 @@ string Sistema::list_servers(int id) {
 	return stream.str();
 }
 
+/*
+A2.6 ok
+Faltou atualizar as informações relativas aos usuários da tabela usuarios logados
+*/
 string Sistema::remove_server(int id, const string nome) {
 	string h;
 	int count = 0;
