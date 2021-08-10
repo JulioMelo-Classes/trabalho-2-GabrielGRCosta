@@ -24,7 +24,23 @@ class Sistema {
 		*/
 		std::string quit();
 
+		/*! Checa se as strings passadas estão vazias, retorna 1 se for verdade e 0 se for falso
+				@param a string 1
+				@param b string 2
+				@param c string 3
+				@return retorna 1 se for verdade e 0 se for falso
+		*/
+		int treatment(string a, string b , string c);
+
+		/*! Chama uma função para setar o id do usuário e após isso , adiciona o mesmo ao vetor de usuários cadastrados
+				@param a Um usuário
+		*/
 		void adduser(Usuario a);
+
+		/*! Retorna o vetor de usuários cadastrados no sistema.
+				@return retorna o vetor de usuários
+		*/
+		std::vector <Usuario> get_usuarios();
 
 		/*! Cria um usuário e retorna uma string de erro/sucesso 
 				@param email o email do usuário informado no comando create-user

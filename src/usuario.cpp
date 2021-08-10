@@ -7,6 +7,11 @@
 #include <string.h>
 using namespace std;
 
+Usuario::Usuario(string nome, string email , string senha){
+	this->nome = nome;
+	this->email = email;
+	this->senha = senha;
+}
 
 string Usuario::get_name(){
 	return nome;
@@ -22,18 +27,6 @@ string Usuario::get_senha(){
 
 int Usuario::get_id(){
 	return id;
-}
-
-void Usuario::set_name(string name){
-	nome=name;
-}
-
-void Usuario::set_email(string emaill){
-	email=emaill;
-}
-
-void Usuario::set_senha(string senhaa){
-	senha=senhaa;
 }
 
 void Usuario::set_id(int a){

@@ -1,0 +1,30 @@
+create-user julio.melo@imd.ufrn.br 12ab34cd Juliao O Grande
+login julio.melo@imd.ufrn.br 12ab34cd
+create-server 0 minha-casa
+enter-server 0 minha-casa
+create-user tenis@gmail.com.br chap123 Eberaldo Neto
+login penistenis@gmail.com.br chap123
+enter-server 1 minha-casa
+create-user galvaogabriel@gmail.com ggrc1508 Gabriel Costa
+login galvaogabriel@gmail.com ggrc1508
+create-user gustavoferreira@hotmail.com gus980 Gustavo Ferreira
+login gustavoferreira@hotmail.com gus980
+enter-server 2 minha-casa
+enter-server 3 minha-casa
+list-participants 0
+create-channel 0 cook
+create-channel 0 dale
+create-channel 0 big-boss
+list-channels 0
+enter-channel 0 big-boss
+enter-channel 1 big-boss
+enter-channel 2 big-boss
+enter-channel 3
+send-message 0 Oi pessoal querem TC?
+send-message 1 gatinha vc
+send-message 2 alex o grande
+list-messages 2
+list-messages 0
+list-messages 1
+create-user bigbrother@gmail.com pri123
+quit
