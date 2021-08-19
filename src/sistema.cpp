@@ -2,9 +2,13 @@
 #include <iostream>
 #include <sstream>
 #include <algorithm>
-#include "../include/usuario.h"
+
+#include "../include/usuario.h" 
 #include "../include/mensagem.h"
 #include "../include/canaltexto.h"
+//não precisa includir fazendo ../include/ se vc usar cmake o comando include_directories permite você incluir os 
+//arquivos "como se" você estivesse no mesmo diretório dos .h, assim fazendo apenas #include "arquivo.h" daria certo
+
 #include <string.h>
 #include <string>
 using namespace std;
@@ -156,13 +160,17 @@ string Sistema::remove_server(int id, const string nome) {
 	return "Não foi encontrado o servidor " + nome;
 }
 
+/*
+A2.7 0,8
+É possível entrar mais de uma vez no mesmo servidor, nome do usuário fica duplicado 20% a menos
+*/
 string Sistema::enter_server(int id, const string nome, const string codigo) {
 	if (usuariosLogados.count(id) == 0) {
 		return "Usuario não está logado";
 	}
 	for(auto &b : servidores){
 		if(b.get_nameserver() == nome && b.get_convite() == ""){
-			b.addpartids(id);
+			b.addpartids(id); //antes de fazer isso vc poderia verificar se o usuário já está no servidor, ou fazer a verificação dentro de b.
 			usuariosLogados[id].first = nome;
 			return "Entrou no servidor com sucesso";
 		}
@@ -178,12 +186,16 @@ string Sistema::enter_server(int id, const string nome, const string codigo) {
   return "Servidor Não foi encontrado";
 }
 
+/*
+A2.8 0,9
+Leave-server de usuário não participante não dá erro 10% a menos
+*/
 string Sistema::leave_server(int id, const string nome) {
 	if (usuariosLogados.count(id) == 0) {
 		return "Usuario não está logado";
 	}
 	for(auto &w : servidores){
-		if(w.get_nameserver() == nome){
+		if(w.get_nameserver() == nome){ //quando um usuário que não está no servidor faz leave-server id nome-servidor, esse método entra aqui mesmo que o usuário não participe. Vou tirar 10%.
 			w.rmpartids(id);
 			return "Saindo do servidor " + nome;
 		}
@@ -194,6 +206,9 @@ string Sistema::leave_server(int id, const string nome) {
   return "Você não está em qualquer servidor";
 }
 
+/*
+A2.9 ok
+*/
 string Sistema::list_participants(int id) {
 	if (usuariosLogados.count(id) == 0) {
 		return "Usuario não está logado";
@@ -206,6 +221,9 @@ string Sistema::list_participants(int id) {
   return "Não há pessoas no servidor procurado";
 }
 
+/*
+B1.1 ok
+*/
 string Sistema::list_channels(int id) {
 	if(usuariosLogados.count(id) == 0) {
 		return "Usuario não está logado";
@@ -218,6 +236,9 @@ string Sistema::list_channels(int id) {
   return "Não existe canais no servidor";
 }
 
+/*
+B1.2 ok
+*/
 string Sistema::create_channel(int id, const string nome) {			
   if(usuariosLogados.count(id) == 0){
 		return "Usuario não está logado";
@@ -239,6 +260,9 @@ string Sistema::create_channel(int id, const string nome) {
   return "Usuário não está em nenhum servidor registrado no sistema  ";
 }
 
+/*
+B1.3 ok
+*/
 string Sistema::enter_channel(int id, const string nome) {
   	string usu;	
   	if(usuariosLogados.count(id) == 0) {
@@ -267,6 +291,9 @@ string Sistema::enter_channel(int id, const string nome) {
   return "O canal não existe";
 }
 
+/*
+B1.4 ok
+*/
 string Sistema::leave_channel(int id) {
   string usu;
   string nem;
@@ -289,6 +316,9 @@ string Sistema::leave_channel(int id) {
   return "O canal que o Usuário quer sair não existe";	
 }
 
+/*
+B2.1 ok
+*/
 string Sistema::send_message(int id, const string mensagem) {
   if(usuariosLogados.count(id) == 0){
 	return "Usuário não está logado";
@@ -310,6 +340,9 @@ string Sistema::send_message(int id, const string mensagem) {
   }	
 }
 
+/*
+B2.2 ok
+*/
 string Sistema::list_messages(int id) {
   string nomecanal;
   if(usuariosLogados.count(id) == 0) {
@@ -319,7 +352,7 @@ string Sistema::list_messages(int id) {
 	return "Usuário não está visualizando nenhum canal";
   }
   else{
-	  for(int l=0; l<servidores.size(); l++){
+	  for(int l=0; l<servidores.size(); l++){ //erro de indentação!
 		  if(usuariosLogados[id].first == servidores[l].get_nameserver()){
 			nomecanal = usuariosLogados[id].second;
 			return servidores[l].requestlistm(usuarios,nomecanal);

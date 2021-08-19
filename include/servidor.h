@@ -5,6 +5,9 @@
 #include "canaltexto.h"
 using namespace std;
 
+/*
+CP2 ok
+*/
 class Servidor{
 	private:
 	int usuarioDonoId;//<! Id do dono do servidor	

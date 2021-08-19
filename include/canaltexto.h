@@ -7,6 +7,9 @@
 #include <iostream>
 using namespace std;
 
+/*
+CP2 Ok
+*/
 class CanalTexto{
 	private:
 	string nome;//<! o nome do canal

@@ -6,6 +6,9 @@
 #include <string.h>
 using namespace std;
 
+/*
+CP2 Ok
+*/
 class Mensagem{
 	private:
 	int enviadaPor;//<! um inteiro com o id do usuário que enviou a mensagem

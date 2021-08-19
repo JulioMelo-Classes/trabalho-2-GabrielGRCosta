@@ -1,4 +1,7 @@
 # Concordo
+<!--Como vocês não documentaram os casos de teste, vou e não fizeram casos específicos
+    vou considerar o questio "testes" como 50%.
+-->
 Trab de LP1- Gabriel e Davi
 
 ## Como compilar:
